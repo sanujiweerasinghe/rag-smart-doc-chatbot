@@ -1,0 +1,77 @@
+[
+  {
+    "question": "What is simple exponential smoothing?",
+    "expected_keywords": ["weighted", "average", "alpha", "smoothing", "forecast"],
+    "expected_source": "Single (Simple) Exponential Smoothing.pdf"
+  },
+  {
+    "question": "What does the smoothing parameter alpha control in simple exponential smoothing?",
+    "expected_keywords": ["alpha", "weight", "recent", "older", "observations"],
+    "expected_source": "Single (Simple) Exponential Smoothing.pdf"
+  },
+  {
+    "question": "What is the formula for simple exponential smoothing?",
+    "expected_keywords": ["alpha", "forecast", "actual", "previous"],
+    "expected_source": "Single (Simple) Exponential Smoothing.pdf"
+  },
+  {
+    "question": "What is Holt's double exponential smoothing?",
+    "expected_keywords": ["trend", "level", "holt", "double", "smoothing"],
+    "expected_source": "Double (Holt's) Exponential Smoothing-edit.pdf"
+  },
+  {
+    "question": "How does Holt's method handle trend in time series?",
+    "expected_keywords": ["trend", "beta", "level", "slope"],
+    "expected_source": "Double (Holt's) Exponential Smoothing-edit.pdf"
+  },
+  {
+    "question": "What are the two smoothing parameters in Holt's double exponential smoothing?",
+    "expected_keywords": ["alpha", "beta", "level", "trend"],
+    "expected_source": "Double (Holt's) Exponential Smoothing-edit.pdf"
+  },
+  {
+    "question": "What is Holt-Winters triple exponential smoothing?",
+    "expected_keywords": ["seasonal", "trend", "level", "holt", "winters"],
+    "expected_source": "Triple (Holt's Winter) Exponential Smoothing-edit.pdf"
+  },
+  {
+    "question": "How does Holt-Winters handle seasonality?",
+    "expected_keywords": ["seasonal", "gamma", "multiplicative", "additive"],
+    "expected_source": "Triple (Holt's Winter) Exponential Smoothing-edit.pdf"
+  },
+  {
+    "question": "What are the three components in Holt-Winters method?",
+    "expected_keywords": ["level", "trend", "seasonal"],
+    "expected_source": "Triple (Holt's Winter) Exponential Smoothing-edit.pdf"
+  },
+  {
+    "question": "What is volatility clustering?",
+    "expected_keywords": ["volatility", "cluster", "large", "small", "returns"],
+    "expected_source": "Volatility Clustering-ARCH Models IV-edit.pdf"
+  },
+  {
+    "question": "What is the ARCH model?",
+    "expected_keywords": ["autoregressive", "conditional", "heteroscedasticity", "variance", "ARCH"],
+    "expected_source": "Volatility Clustering-ARCH Models IV-edit.pdf"
+  },
+  {
+    "question": "How does the ARCH model capture changing variance over time?",
+    "expected_keywords": ["variance", "squared", "residuals", "lag", "conditional"],
+    "expected_source": "Volatility Clustering-ARCH Models IV-edit.pdf"
+  },
+  {
+    "question": "What is the GARCH model?",
+    "expected_keywords": ["generalized", "ARCH", "GARCH", "variance", "conditional"],
+    "expected_source": "GARCH Theory-edit 3.pdf"
+  },
+  {
+    "question": "How is GARCH different from ARCH?",
+    "expected_keywords": ["lagged", "variance", "GARCH", "ARCH", "generalized"],
+    "expected_source": "GARCH Theory-edit 3.pdf"
+  },
+  {
+    "question": "What are the parameters in a GARCH(1,1) model?",
+    "expected_keywords": ["omega", "alpha", "beta", "variance", "GARCH"],
+    "expected_source": "GARCH Theory-edit 3.pdf"
+  }
+]
