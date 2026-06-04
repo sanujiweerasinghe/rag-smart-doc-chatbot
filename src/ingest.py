@@ -53,3 +53,22 @@ def chunk_documents(docs: list[dict]) -> list[dict]:
     for doc in docs:
         chunks.extend(chunk_text(doc["text"], doc["source"], doc["page"]))
     return chunks
+
+
+def build_vector_store(chunks: list[dict]) -> None:
+    model = SentenceTransformer(EMBEDDING_MODEL)
+    texts = [c["text"] for c in chunks]
+    embeddings = model.encode(texts, show_progress_bar=True).tolist()
+
+    client = chromadb.PersistentClient(path=CHROMA_DB_PATH)
+    try:
+        client.delete_collection(COLLECTION_NAME)
+    except Exception:
+        pass
+    collection = client.create_collection(COLLECTION_NAME)
+    collection.add(
+        ids=[str(i) for i in range(len(chunks))],
+        embeddings=embeddings,
+        documents=texts,
+        metadatas=[{"source": c["source"], "page": c["page"]} for c in chunks],
+    )
