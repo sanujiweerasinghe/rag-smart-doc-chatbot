@@ -72,3 +72,29 @@ def build_vector_store(chunks: list[dict]) -> None:
         documents=texts,
         metadatas=[{"source": c["source"], "page": c["page"]} for c in chunks],
     )
+
+
+def ingest(data_dir: Path = DATA_DIR) -> None:
+    print(f"Loading documents from {data_dir}...")
+    docs = load_documents(data_dir)
+    if not docs:
+        print("No documents found. Add PDFs or .md/.txt files to the data/ folder.")
+        return
+
+    print(f"Loaded {len(docs)} pages/documents. Chunking...")
+    chunks = chunk_documents(docs)
+    print(f"Created {len(chunks)} chunks (size={CHUNK_SIZE}, overlap={CHUNK_OVERLAP}).")
+
+    print("Embedding and storing in ChromaDB...")
+    build_vector_store(chunks)
+    print(f"Done. Vector store saved to {CHROMA_DB_PATH}")
+    print(f"\nChunk size={CHUNK_SIZE}, overlap={CHUNK_OVERLAP} - why these numbers:")
+    print("  - 500 words (~1-2 paragraphs): enough context per chunk, not too long.")
+    print("  - 50-word overlap: prevents answers being cut off at chunk boundaries.")
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Ingest documents into ChromaDB.")
+    parser.add_argument("--data-dir", type=Path, default=DATA_DIR)
+    args = parser.parse_args()
+    ingest(args.data_dir)
