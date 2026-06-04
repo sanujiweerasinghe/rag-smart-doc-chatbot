@@ -1,0 +1,14 @@
+.env
+PROJECT_GUIDE.md
+chroma_db/
+data/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+*.pdf
+*.csv
