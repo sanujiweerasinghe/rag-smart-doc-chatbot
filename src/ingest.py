@@ -31,3 +31,25 @@ def load_documents(data_dir: Path) -> list[dict]:
             if text.strip():
                 docs.append({"text": text, "source": str(file), "page": 1})
     return docs
+
+
+def chunk_text(text: str, source: str, page: int) -> list[dict]:
+    words = text.split()
+    chunks = []
+    step = CHUNK_SIZE - CHUNK_OVERLAP
+    for i in range(0, len(words), step):
+        chunk_words = words[i: i + CHUNK_SIZE]
+        if chunk_words:
+            chunks.append({
+                "text": " ".join(chunk_words),
+                "source": source,
+                "page": page,
+            })
+    return chunks
+
+
+def chunk_documents(docs: list[dict]) -> list[dict]:
+    chunks = []
+    for doc in docs:
+        chunks.extend(chunk_text(doc["text"], doc["source"], doc["page"]))
+    return chunks
