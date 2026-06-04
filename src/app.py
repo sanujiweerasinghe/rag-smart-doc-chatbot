@@ -16,6 +16,12 @@ if "messages" not in st.session_state:
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])
+        if msg["role"] == "assistant" and msg.get("sources"):
+            with st.expander("📚 Sources used"):
+                for s in msg["sources"]:
+                    page_info = f", page {s['page']}" if s['page'] != "" else ""
+                    st.markdown(f"**{os.path.basename(s['file'])}{page_info}**")
+                    st.caption(s["excerpt"] + "...")
 
 if prompt := st.chat_input("Ask something about your documents..."):
     st.session_state.messages.append({"role": "user", "content": prompt})
