@@ -64,6 +64,21 @@ python src/ingest.py
 streamlit run src/app.py
 ```
 
+## Evaluation Results
+
+Evaluated on 15 Q&A pairs covering all 5 document topics (Simple/Double/Triple Exponential Smoothing, ARCH, GARCH).
+
+| Metric | Score |
+|--------|-------|
+| Retrieval hit-rate | **100%** (15/15) |
+| Avg keyword overlap | **66%** |
+
+Run the evaluation yourself:
+
+```bash
+python src/evaluate.py
+```
+
 ## Run Tests
 
 ```bash
