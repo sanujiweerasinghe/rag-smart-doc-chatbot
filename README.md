@@ -1,7 +1,5 @@
 # RAG Smart Doc Chatbot
 
-![Branch](https://img.shields.io/badge/branch-master-blue?logo=git&logoColor=white)
-
 A Retrieval-Augmented Generation (RAG) chatbot that answers questions from your own documents — with citations, not hallucinations.
 
 ## What it does
